@@ -1,0 +1,13 @@
+{
+    "attributes": [
+      {
+        "bank": "Bank ABC",
+        "country": "XX",
+        "partner": "XYZ Motors"
+      }
+    ],
+    "description": "BANK ABC AND XYZ MOTORS BRINGS 1%* DISCOUNT TO ALL DECENTRALAND USERS",
+    "image": "https://gateway.pinata.cloud/ipfs/QmebfQYaQ5JkfARix6n7m95NUDZsbzBao9pjJyH3SKjLq1",
+    "name": "CAR_FIN_DISCOUNT"
+}
+  

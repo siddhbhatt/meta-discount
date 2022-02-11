@@ -1,0 +1,6 @@
+build/contracts/*
+contracts
+dcl2
+node_modules
+secret.json
+dcl/node_modules/*
