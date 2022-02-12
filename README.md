@@ -21,7 +21,7 @@ npx truffle console --network development
 5. Interacting with contract from Truffle console
 ```
 const disc = await TestDisc.deployed();
-await disc.mintNFT("0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1", "https://gateway.pinata.cloud/ipfs/QmVnTrPx8yG22pYLWTdfVe9F13epXCjyGTCw9gBuBqkcDe")
+await disc.mintNFT("0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1", "https://gateway.pinata.cloud/ipfs/Qmen8Yo37xpMjGXEJ1gasQYfZAcbM7FMVJhSB6VSUXtMGr")
 await disc.ownerOf(1)
 await disc.tokenURI(1)
 ```

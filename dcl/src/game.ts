@@ -8,7 +8,7 @@ const billboard = new Entity()
 billboard.addComponent(new Transform({ position: new Vector3(6, 0, 6.5), rotation: new Quaternion(0, 0, 0, 1), scale: new Vector3(1, 1, 1) }))
 billboard.addComponent(new GLTFShape("models/Billboard_Black.glb"))
 
-const img = new Texture("https://gateway.pinata.cloud/ipfs/QmcwwT4tcwiapbCsqpvfiHS7y9C9sEM2MTGGow123FeSUZ")
+const img = new Texture("https://gateway.pinata.cloud/ipfs/QmebfQYaQ5JkfARix6n7m95NUDZsbzBao9pjJyH3SKjLq1")
 const material = new Material()
 material.albedoTexture = img
 material.roughness = 1
@@ -28,6 +28,64 @@ QRPlane.addComponent(
 engine.addEntity(QRPlane)
 
 engine.addEntity(billboard)
+
+function demoVideo(){
+
+
+  // for video
+  // #1
+  const myVideoClip = new VideoClip(
+    "clips/video.mp4"
+  )
+
+  // #2
+  const myVideoTexture = new VideoTexture(myVideoClip)
+
+  // #3
+  const myMaterial = new Material()
+  myMaterial.albedoTexture = myVideoTexture
+  myMaterial.roughness = 1
+  myMaterial.specularIntensity = 0
+  myMaterial.metallic = 0
+
+
+  // #4
+  const screen = new Entity()
+  screen.addComponent(new PlaneShape())
+  screen.addComponent(
+    new Transform({
+      position: new Vector3(3, 3, 1), scale: new Vector3(5, 5, 5), rotation: Quaternion.Euler(0, 210, 0)
+    })
+  )
+  screen.addComponent(myMaterial)
+  screen.addComponent(
+    new OnPointerDown(() => {
+      myVideoTexture.playing = !myVideoTexture.playing
+    })
+  )
+  engine.addEntity(screen)
+
+  // #5
+  myVideoTexture.play()
+  onVideoEvent.add((data) => {
+    // log("New Video Event ", data)
+    if (data.currentOffset === data.totalVideoLength && data.videoStatus === 7) {
+      engine.removeEntity(screen)
+    }
+  })
+}
+
+const kiosk = new Entity()
+kiosk.addComponent(new GLTFShape("models/kiosk.gltf"))
+kiosk.addComponent(new Transform({ position: new Vector3(3.1, 0, 1.5), rotation: Quaternion.Euler(0, 210, 0), scale: new Vector3(1, 1, 1) }))
+engine.addEntity(kiosk)
+
+kiosk.addComponent(
+  new OnPointerDown(() => {
+    demoVideo()
+  })
+)
+
 
 function spawnMessage(x: number, y: number, z: number, message: string) {
   // create the entity
@@ -481,7 +539,7 @@ function transactNFT() {
 
     const tx = await contract.mintNFT(
       account,
-      "https://gateway.pinata.cloud/ipfs/QmVnTrPx8yG22pYLWTdfVe9F13epXCjyGTCw9gBuBqkcDe",
+      "https://gateway.pinata.cloud/ipfs/Qmen8Yo37xpMjGXEJ1gasQYfZAcbM7FMVJhSB6VSUXtMGr",
       {
         from: "0x0716024ca991Ab07e6cA41c0c10246c657c937E2",
       }
