@@ -3,3 +3,5 @@ dcl2
 node_modules
 secret.json
 dcl/node_modules/*
+dcl/clips/narration1.mp3
+dcl/clips/video1.mp4

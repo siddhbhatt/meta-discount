@@ -54,7 +54,7 @@ function demoVideo(){
   screen.addComponent(new PlaneShape())
   screen.addComponent(
     new Transform({
-      position: new Vector3(3, 3, 1), scale: new Vector3(5, 5, 5), rotation: Quaternion.Euler(0, 210, 0)
+      position: new Vector3(3, 3.5, 3.8), scale: new Vector3(5, 5, 5), rotation: Quaternion.Euler(0, 220, 0)
     })
   )
   screen.addComponent(myMaterial)
@@ -548,9 +548,14 @@ function transactNFT() {
 
   })}
 
+let sound = new AudioClip('clips/narration.mp3')
+let source = new AudioSource(sound)
+billboard.addComponent(source)
+
 billboard.addComponent(
   new OnPointerDown((e) => {
     log("Clicked")
+    source.playOnce()
     transactNFT()
     
   },
